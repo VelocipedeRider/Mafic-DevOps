@@ -10,10 +10,10 @@ resource "kubernetes_manifest" "state_metrics_local_sa" {
     kind       = "ServiceAccount"
     metadata = {
       namespace = kubernetes_namespace.mon_local.metadata[0].name
-      name      = "state-metrics"
+      name      = var.kubernetes_manifest_manifest_metadata_name
 
       labels = {
-        app = "state-metrics"
+        app = var.kubernetes_manifest_manifest_metadata_label_app
       }
     }
 
