@@ -1,0 +1,693 @@
+{
+  "version": 4,
+  "terraform_version": "1.2.5",
+  "serial": 11,
+  "lineage": "40bd7b0f-fa74-e9ca-9dcb-558e3dc9147c",
+  "outputs": {},
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "kubernetes_namespace",
+      "name": "mon_local",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"].local",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "mon",
+            "metadata": [
+              {
+                "annotations": null,
+                "generate_name": "",
+                "generation": 0,
+                "labels": null,
+                "name": "mon",
+                "resource_version": "2200",
+                "uid": "f52b73c3-97ca-4485-b58e-08431ec8cad0"
+              }
+            ],
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiZGVsZXRlIjozMDAwMDAwMDAwMDB9fQ=="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "kubernetes_secret",
+      "name": "state_metrics_local_sa_token",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"].local",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "binary_data": null,
+            "data": {},
+            "id": "mon/state-metrics-token",
+            "immutable": false,
+            "metadata": [
+              {
+                "annotations": {
+                  "kubernetes.io/service-account.name": "state-metrics"
+                },
+                "generate_name": "",
+                "generation": 0,
+                "labels": null,
+                "name": "state-metrics-token",
+                "namespace": "mon",
+                "resource_version": "2205",
+                "uid": "b8cb207e-f7c6-4049-add0-2f0ffa11f319"
+              }
+            ],
+            "type": "kubernetes.io/service-account-token"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.metrics",
+      "mode": "managed",
+      "type": "kubernetes_cluster_role",
+      "name": "state_metrics_local",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"].local",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "aggregation_rule": [],
+            "id": "state-metrics",
+            "metadata": [
+              {
+                "annotations": null,
+                "generation": 0,
+                "labels": {
+                  "app": "state-metrics"
+                },
+                "name": "state-metrics",
+                "resource_version": "2201",
+                "uid": "aa414696-a85c-418a-960d-509fb1c78567"
+              }
+            ],
+            "rule": [
+              {
+                "api_groups": [
+                  ""
+                ],
+                "non_resource_urls": null,
+                "resource_names": null,
+                "resources": [
+                  "configmaps",
+                  "secrets",
+                  "nodes",
+                  "pods",
+                  "services",
+                  "resourcequotas",
+                  "replicationcontrollers",
+                  "limitranges",
+                  "persistentvolumeclaims",
+                  "persistentvolumes",
+                  "namespaces",
+                  "endpoints"
+                ],
+                "verbs": [
+                  "list",
+                  "watch"
+                ]
+              },
+              {
+                "api_groups": [
+                  "extensions"
+                ],
+                "non_resource_urls": null,
+                "resource_names": null,
+                "resources": [
+                  "daemonsets",
+                  "deployments",
+                  "replicasets",
+                  "ingresses"
+                ],
+                "verbs": [
+                  "list",
+                  "watch"
+                ]
+              },
+              {
+                "api_groups": [
+                  "apps"
+                ],
+                "non_resource_urls": null,
+                "resource_names": null,
+                "resources": [
+                  "statefulsets",
+                  "daemonsets",
+                  "deployments",
+                  "replicasets"
+                ],
+                "verbs": [
+                  "list",
+                  "watch"
+                ]
+              },
+              {
+                "api_groups": [
+                  "batch"
+                ],
+                "non_resource_urls": null,
+                "resource_names": null,
+                "resources": [
+                  "cronjobs",
+                  "jobs"
+                ],
+                "verbs": [
+                  "list",
+                  "watch"
+                ]
+              },
+              {
+                "api_groups": [
+                  "autoscaling"
+                ],
+                "non_resource_urls": null,
+                "resource_names": null,
+                "resources": [
+                  "horizontalpodautoscalers"
+                ],
+                "verbs": [
+                  "list",
+                  "watch"
+                ]
+              },
+              {
+                "api_groups": [
+                  "authentication.k8s.io"
+                ],
+                "non_resource_urls": null,
+                "resource_names": null,
+                "resources": [
+                  "tokenreviews"
+                ],
+                "verbs": [
+                  "create"
+                ]
+              },
+              {
+                "api_groups": [
+                  "authorization.k8s.io"
+                ],
+                "non_resource_urls": null,
+                "resource_names": null,
+                "resources": [
+                  "subjectaccessreviews"
+                ],
+                "verbs": [
+                  "create"
+                ]
+              },
+              {
+                "api_groups": [
+                  "policy"
+                ],
+                "non_resource_urls": null,
+                "resource_names": null,
+                "resources": [
+                  "poddisruptionbudgets"
+                ],
+                "verbs": [
+                  "list",
+                  "watch"
+                ]
+              },
+              {
+                "api_groups": [
+                  "certificates.k8s.io"
+                ],
+                "non_resource_urls": null,
+                "resource_names": null,
+                "resources": [
+                  "certificatesigningrequests"
+                ],
+                "verbs": [
+                  "list",
+                  "watch"
+                ]
+              },
+              {
+                "api_groups": [
+                  "storage.k8s.io"
+                ],
+                "non_resource_urls": null,
+                "resource_names": null,
+                "resources": [
+                  "storageclasses",
+                  "volumeattachments"
+                ],
+                "verbs": [
+                  "list",
+                  "watch"
+                ]
+              },
+              {
+                "api_groups": [
+                  "admissionregistration.k8s.io"
+                ],
+                "non_resource_urls": null,
+                "resource_names": null,
+                "resources": [
+                  "mutatingwebhookconfigurations",
+                  "validatingwebhookconfigurations"
+                ],
+                "verbs": [
+                  "list",
+                  "watch"
+                ]
+              },
+              {
+                "api_groups": [
+                  "networking.k8s.io"
+                ],
+                "non_resource_urls": null,
+                "resource_names": null,
+                "resources": [
+                  "networkpolicies",
+                  "ingresses"
+                ],
+                "verbs": [
+                  "list",
+                  "watch"
+                ]
+              },
+              {
+                "api_groups": [
+                  "coordination.k8s.io"
+                ],
+                "non_resource_urls": null,
+                "resource_names": null,
+                "resources": [
+                  "leases"
+                ],
+                "verbs": [
+                  "list",
+                  "watch"
+                ]
+              }
+            ]
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.metrics",
+      "mode": "managed",
+      "type": "kubernetes_cluster_role_binding",
+      "name": "state_metrics_local",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"].local",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "state-metrics-binding",
+            "metadata": [
+              {
+                "annotations": null,
+                "generation": 0,
+                "labels": {
+                  "app": "state-metrics"
+                },
+                "name": "state-metrics-binding",
+                "resource_version": "2206",
+                "uid": "e0b5e9b8-2dbc-44d5-afad-606df7737243"
+              }
+            ],
+            "role_ref": [
+              {
+                "api_group": "rbac.authorization.k8s.io",
+                "kind": "ClusterRole",
+                "name": "state-metrics"
+              }
+            ],
+            "subject": [
+              {
+                "api_group": "",
+                "kind": "ServiceAccount",
+                "name": "state-metrics",
+                "namespace": "mon"
+              }
+            ]
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.metrics",
+      "mode": "managed",
+      "type": "kubernetes_deployment",
+      "name": "state_metrics_local",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"].local",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "id": "mon/state-metrics",
+            "metadata": [
+              {
+                "annotations": null,
+                "generate_name": "",
+                "generation": 1,
+                "labels": {
+                  "app": "state-metrics"
+                },
+                "name": "state-metrics",
+                "namespace": "mon",
+                "resource_version": "2229",
+                "uid": "2a03cb33-70de-43e1-a18c-8c16aa67f42e"
+              }
+            ],
+            "spec": [
+              {
+                "min_ready_seconds": 0,
+                "paused": false,
+                "progress_deadline_seconds": 180,
+                "replicas": "1",
+                "revision_history_limit": 10,
+                "selector": [
+                  {
+                    "match_expressions": [],
+                    "match_labels": {
+                      "app": "state-metrics"
+                    }
+                  }
+                ],
+                "strategy": [
+                  {
+                    "rolling_update": [],
+                    "type": "Recreate"
+                  }
+                ],
+                "template": [
+                  {
+                    "metadata": [
+                      {
+                        "annotations": {
+                          "ad.datadoghq.com/state-metrics.check_names": "[\"kubernetes_state\"]",
+                          "ad.datadoghq.com/state-metrics.init_configs": "[{}]",
+                          "ad.datadoghq.com/state-metrics.instances": "[{\"kube_state_url\":\"http://%%host%%:18080/metrics\",\"label_joins\":{\"kube_deployment_labels\":{\"labels_to_get\":[\"label_app\",\"label_deploy_env\",\"label_type\",\"label_magic_net\",\"label_canary\"],\"labels_to_match\":[\"deployment\"]}},\"labels_mapper\":{\"label_app\":\"app\",\"label_deploy_env\":\"deploy_env\"},\"min_collection_interval\":30,\"prometheus_timeout\":30,\"telemetry\":true}]"
+                        },
+                        "generate_name": "",
+                        "generation": 0,
+                        "labels": {
+                          "app": "state-metrics"
+                        },
+                        "name": "",
+                        "namespace": "mon",
+                        "resource_version": "",
+                        "uid": ""
+                      }
+                    ],
+                    "spec": [
+                      {
+                        "active_deadline_seconds": 0,
+                        "affinity": [],
+                        "automount_service_account_token": true,
+                        "container": [
+                          {
+                            "args": null,
+                            "command": [
+                              "/kube-state-metrics",
+                              "--port=18080",
+                              "--telemetry-port=18081"
+                            ],
+                            "env": [],
+                            "env_from": [],
+                            "image": "k8s.gcr.io/kube-state-metrics/kube-state-metrics:v1.9.8",
+                            "image_pull_policy": "IfNotPresent",
+                            "lifecycle": [],
+                            "liveness_probe": [],
+                            "name": "state-metrics",
+                            "port": [],
+                            "readiness_probe": [
+                              {
+                                "exec": [],
+                                "failure_threshold": 3,
+                                "http_get": [
+                                  {
+                                    "host": "",
+                                    "http_header": [],
+                                    "path": "/healthz",
+                                    "port": "18080",
+                                    "scheme": "HTTP"
+                                  }
+                                ],
+                                "initial_delay_seconds": 5,
+                                "period_seconds": 10,
+                                "success_threshold": 1,
+                                "tcp_socket": [],
+                                "timeout_seconds": 5
+                              }
+                            ],
+                            "resources": [
+                              {
+                                "limits": {
+                                  "cpu": "60m",
+                                  "memory": "50Mi"
+                                },
+                                "requests": {
+                                  "cpu": "30m",
+                                  "memory": "30Mi"
+                                }
+                              }
+                            ],
+                            "security_context": [],
+                            "startup_probe": [],
+                            "stdin": false,
+                            "stdin_once": false,
+                            "termination_message_path": "/dev/termination-log",
+                            "termination_message_policy": "File",
+                            "tty": false,
+                            "volume_mount": [],
+                            "working_dir": ""
+                          }
+                        ],
+                        "dns_config": [],
+                        "dns_policy": "ClusterFirst",
+                        "enable_service_links": false,
+                        "host_aliases": [],
+                        "host_ipc": false,
+                        "host_network": true,
+                        "host_pid": false,
+                        "hostname": "",
+                        "image_pull_secrets": [],
+                        "init_container": [],
+                        "node_name": "",
+                        "node_selector": null,
+                        "priority_class_name": "",
+                        "readiness_gate": [],
+                        "restart_policy": "Always",
+                        "security_context": [],
+                        "service_account_name": "state-metrics",
+                        "share_process_namespace": false,
+                        "subdomain": "",
+                        "termination_grace_period_seconds": 30,
+                        "toleration": [],
+                        "topology_spread_constraint": [],
+                        "volume": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "timeouts": null,
+            "wait_for_rollout": true
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwLCJ1cGRhdGUiOjYwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9"
+        }
+      ]
+    },
+    {
+      "module": "module.metrics",
+      "mode": "managed",
+      "type": "kubernetes_manifest",
+      "name": "state_metrics_local_sa",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"].local",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "computed_fields": null,
+            "field_manager": [],
+            "manifest": {
+              "value": {
+                "apiVersion": "v1",
+                "automountServiceAccountToken": false,
+                "kind": "ServiceAccount",
+                "metadata": {
+                  "labels": {
+                    "app": "state-metrics"
+                  },
+                  "name": "state-metrics",
+                  "namespace": "mon"
+                }
+              },
+              "type": [
+                "object",
+                {
+                  "apiVersion": "string",
+                  "automountServiceAccountToken": "bool",
+                  "kind": "string",
+                  "metadata": [
+                    "object",
+                    {
+                      "labels": [
+                        "object",
+                        {
+                          "app": "string"
+                        }
+                      ],
+                      "name": "string",
+                      "namespace": "string"
+                    }
+                  ]
+                }
+              ]
+            },
+            "object": {
+              "value": {
+                "apiVersion": "v1",
+                "automountServiceAccountToken": false,
+                "imagePullSecrets": null,
+                "kind": "ServiceAccount",
+                "metadata": {
+                  "annotations": null,
+                  "clusterName": null,
+                  "creationTimestamp": null,
+                  "deletionGracePeriodSeconds": null,
+                  "deletionTimestamp": null,
+                  "finalizers": null,
+                  "generateName": null,
+                  "generation": null,
+                  "labels": {
+                    "app": "state-metrics"
+                  },
+                  "managedFields": null,
+                  "name": "state-metrics",
+                  "namespace": "mon",
+                  "ownerReferences": null,
+                  "resourceVersion": null,
+                  "selfLink": null,
+                  "uid": null
+                },
+                "secrets": null
+              },
+              "type": [
+                "object",
+                {
+                  "apiVersion": "string",
+                  "automountServiceAccountToken": "bool",
+                  "imagePullSecrets": [
+                    "list",
+                    [
+                      "object",
+                      {
+                        "name": "string"
+                      }
+                    ]
+                  ],
+                  "kind": "string",
+                  "metadata": [
+                    "object",
+                    {
+                      "annotations": [
+                        "map",
+                        "string"
+                      ],
+                      "clusterName": "string",
+                      "creationTimestamp": "string",
+                      "deletionGracePeriodSeconds": "number",
+                      "deletionTimestamp": "string",
+                      "finalizers": [
+                        "list",
+                        "string"
+                      ],
+                      "generateName": "string",
+                      "generation": "number",
+                      "labels": [
+                        "map",
+                        "string"
+                      ],
+                      "managedFields": [
+                        "tuple",
+                        [
+                          [
+                            "object",
+                            {
+                              "apiVersion": "string",
+                              "fieldsType": "string",
+                              "fieldsV1": "dynamic",
+                              "manager": "string",
+                              "operation": "string",
+                              "subresource": "string",
+                              "time": "string"
+                            }
+                          ]
+                        ]
+                      ],
+                      "name": "string",
+                      "namespace": "string",
+                      "ownerReferences": [
+                        "list",
+                        [
+                          "object",
+                          {
+                            "apiVersion": "string",
+                            "blockOwnerDeletion": "bool",
+                            "controller": "bool",
+                            "kind": "string",
+                            "name": "string",
+                            "uid": "string"
+                          }
+                        ]
+                      ],
+                      "resourceVersion": "string",
+                      "selfLink": "string",
+                      "uid": "string"
+                    }
+                  ],
+                  "secrets": [
+                    "list",
+                    [
+                      "object",
+                      {
+                        "apiVersion": "string",
+                        "fieldPath": "string",
+                        "kind": "string",
+                        "name": "string",
+                        "namespace": "string",
+                        "resourceVersion": "string",
+                        "uid": "string"
+                      }
+                    ]
+                  ]
+                }
+              ]
+            },
+            "timeouts": [],
+            "wait": [],
+            "wait_for": null
+          },
+          "sensitive_attributes": [],
+          "dependencies": [
+            "kubernetes_namespace.mon_local"
+          ]
+        }
+      ]
+    }
+  ]
+}
