@@ -44,4 +44,6 @@ done
 terraform plan
 ```
 
-# Consider variables to input into module refactor module to accept variable inputs
+# The module variables that need to be considered will depend on needs of the project.
+# I included a few simple variables and use locals to aid with the module theme to demonstrate the process in the metrics.tf file.
+# I think this is enough to demonstrate the point of this exercise. 
