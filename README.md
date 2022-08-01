@@ -12,13 +12,13 @@ kubectl get pods -o wide --all-namespaces | grep state
 # mon           state-metrics-69d979d788-fn8rc            1/1     Running     0             7m18s   10.2.86.234   workstation   <none>           <none>
 ```
 
-# make and move tf files to module
+# Make and move tf files to module
 ```
 mkdir -p modules/metrics
 mv *.tf ./modules/metrics
 ```
 
-# make new main.tf that calls the module
+# Make new main.tf that calls the module
 ```
 cat <<- EOF >./main.tf
 module "metrics" {
@@ -27,7 +27,7 @@ module "metrics" {
 EOF
 ```
 
-# init the module
+# Init the module
 ```
 terraform init
 ```
