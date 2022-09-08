@@ -44,7 +44,7 @@ done
 terraform plan
 ```
 
-# Create variables.tf file in the module and begin replacing values in the modules/metrics/state-metrics.tf file and put them in the varibles.tf file. Then use locals to set the variables exposed in the module. This will put all of the set-able variables in once place so we do not need to modify long manifests. Then reference those locals in the module block to apply them. Once done run a terraform plan and you should expect no changes in output with the existing deployment if the variables have the same defaults or the same explicit values.
+# Create variables.tf file in the module and begin replacing values in the modules/metrics/state-metrics.tf file and put them in the varibles.tf file. Then use locals to set the variables exposed in the module. This will put all of the set-able variables in once place so we do not need to modify long manifests. Then reference those locals in the module block to apply them. Once done, run a terraform plan and you should expect no changes in output with the existing deployment if the variables have the same defaults or the same explicit values.
 
 ```
 terraform plan
